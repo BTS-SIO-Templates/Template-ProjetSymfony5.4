@@ -1,14 +1,15 @@
-# Utilise l'image officielle PHP 7.4 comme base
-FROM mcr.microsoft.com/devcontainers/php:0-7.4
+
+# Utilise l'image officielle PHP 7.4 CLI comme base
+FROM php:7.4-cli
 
 
 
 # 1. Dépendances système (essentielles uniquement)
 RUN apt-get update \
-    && apt-get install -y gnupg2 wget build-essential libzip-dev libpng-dev libonig-dev libxml2-dev libicu-dev libpq-dev libsqlite3-dev
+    && apt-get install -y gnupg2 wget git unzip libzip-dev libpng-dev libonig-dev libxml2-dev libicu-dev libpq-dev libsqlite3-dev libmysqlclient-dev
 
-# 2. Extension PHP pdo_mysql
-RUN docker-php-ext-install pdo_mysql
+# 2. Extensions PHP nécessaires
+RUN docker-php-ext-install pdo pdo_mysql intl zip
 
 # 3. Symfony CLI
 RUN wget https://repo.symfony.com/symfony-cli-stable.deb \

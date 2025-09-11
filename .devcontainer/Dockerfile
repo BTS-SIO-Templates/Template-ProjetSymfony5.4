@@ -3,9 +3,9 @@ FROM mcr.microsoft.com/devcontainers/php:0-7.4
 
 
 
-# 1. Dépendances système
+# 1. Dépendances système (essentielles uniquement)
 RUN apt-get update \
-    && apt-get install -y gnupg2 wget build-essential libzip-dev libpng-dev libonig-dev libxml2-dev libicu-dev libpq-dev libsqlite3-dev default-mysql-client libmysqlclient-dev
+    && apt-get install -y gnupg2 wget build-essential libzip-dev libpng-dev libonig-dev libxml2-dev libicu-dev libpq-dev libsqlite3-dev
 
 # 2. Extension PHP pdo_mysql
 RUN docker-php-ext-install pdo_mysql

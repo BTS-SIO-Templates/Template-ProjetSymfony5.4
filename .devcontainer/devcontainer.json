@@ -1,5 +1,5 @@
 {
-  "name": "Symfony 7.4 Environment",
+  "name": "Symfony 8.2 Environment",
   "build": {
     "dockerfile": "Dockerfile"
   },

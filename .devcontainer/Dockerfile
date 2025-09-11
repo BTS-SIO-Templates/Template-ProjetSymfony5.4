@@ -6,7 +6,7 @@ FROM php:8.2-cli
 
 # 1. Dépendances système (essentielles uniquement)
 RUN apt-get update \
-    && apt-get install -y gnupg2 wget git unzip libzip-dev libpng-dev libonig-dev libxml2-dev libicu-dev libpq-dev libsqlite3-dev libmysqlclient-dev
+    && apt-get install -y gnupg2 wget git unzip libzip-dev libpng-dev libonig-dev libxml2-dev libicu-dev libpq-dev libsqlite3-dev
 
 # 2. Extensions PHP nécessaires
 RUN docker-php-ext-install pdo pdo_mysql intl zip

@@ -1,6 +1,8 @@
 {
   "name": "Symfony 7.4 Environment",
-  "image": "mcr.microsoft.com/devcontainers/php:0-7.4",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
   "customizations": {
     "vscode": {
       "extensions": [
@@ -14,7 +16,8 @@
       ]
     }
   },
-  "postCreateCommand": "curl -sS https://get.symfony.com/cli/installer | bash && mv /home/vscode/.symfony*/bin/symfony /usr/local/bin/symfony && composer install",
+
+  "postCreateCommand": "composer install",
   "forwardPorts": [8000],
   "remoteUser": "vscode"
 }

@@ -11,10 +11,9 @@ RUN apt-get update \
 # 2. Extensions PHP nécessaires
 RUN docker-php-ext-install pdo pdo_mysql intl zip
 
-# 3. Symfony CLI
-RUN wget https://repo.symfony.com/symfony-cli-stable.deb \
-    && apt install -y ./symfony-cli-stable.deb \
-    && rm symfony-cli-stable.deb
+# 3. Symfony CLI (méthode alternative via curl)
+RUN curl -sS https://get.symfony.com/cli/installer | bash \
+    && mv /root/.symfony*/bin/symfony /usr/local/bin/symfony
 
 # 4. Composer
 RUN wget https://getcomposer.org/installer -O composer-setup.php \

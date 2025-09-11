@@ -14,7 +14,7 @@
       ]
     }
   },
-  "postCreateCommand": "composer install",
+  "postCreateCommand": "curl -sS https://get.symfony.com/cli/installer | bash && mv /home/vscode/.symfony*/bin/symfony /usr/local/bin/symfony && composer install",
   "forwardPorts": [8000],
   "remoteUser": "vscode"
 }

@@ -1,6 +1,6 @@
 
-# Utilise l'image officielle PHP 7.4 CLI comme base
-FROM php:7.4-cli
+# Utilise l'image officielle PHP 8.2 CLI comme base
+FROM php:8.2-cli
 
 
 

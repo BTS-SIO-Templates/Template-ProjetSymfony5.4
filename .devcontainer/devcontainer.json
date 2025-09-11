@@ -16,8 +16,6 @@
       ]
     }
   },
-
-  "postCreateCommand": "composer install",
   "forwardPorts": [8000],
   "remoteUser": "vscode"
 }

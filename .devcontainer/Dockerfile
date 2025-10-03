@@ -1,4 +1,4 @@
-
+ENV DEBIAN_FRONTEND=noninteractive
 # Utilise l'image officielle PHP 8.2 CLI comme base
 FROM php:8.2-cli
 

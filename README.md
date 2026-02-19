@@ -17,7 +17,6 @@ Il est distribué via **GitHub Classroom** : chaque étudiant a son dépôt pers
 ### 2. Configurer la base de données
 ⚠️ Vous **n’avez pas de MySQL local** dans Codespaces : la base de données est hébergée sur le serveur du BTS à l'adresse btssio.dedyn.io.  
 
-- Créez un fichier `.env.local` à la racine du projet.  
 - Ajoutez la ligne suivante en adaptant les valeurs (`user`, `password`, `dbname`, `host` fournis par le professeur) :
 
 ```dotenv

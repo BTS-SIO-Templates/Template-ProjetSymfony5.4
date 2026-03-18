@@ -7,42 +7,51 @@
       "extensions": [
         // --- Cœur PHP & Symfony ---
         "bmewburn.vscode-intelephense-client",
-        "symfony.symfony-vscode",             // Support natif des services, routes et autocomplétion YAML
+        "symfony.symfony-vscode",
         "xdebug.php-debug",
         "usernamehw.errorlens",
         
-        // --- Templating & Frontend (Twig) ---
-        "mblode.twig-language-2",             // Coloration et snippets Twig
-        "tomsaunders.vscode-twig-lint",       // Vérifie les erreurs de syntaxe Twig en temps réel
+        // --- Templating & Frontend (Twig / JS) ---
+        "mblode.twig-language-2",
+        "tomsaunders.vscode-twig-lint",
+        "sleistner.vscode-fp-ts-snippets",    // JS/TS (AssetMapper)
+        "formulahendry.auto-rename-tag",
         
         // --- POO & Qualité ---
-        "satiromarra.vscode-php8-getter-setter", // Remplacement de phproberto (plus moderne)
+        "satiromarra.vscode-php8-getter-setter",
         "neilbrayfield.php-docblocker",
         "junstyle.php-cs-fixer",
         
-        // --- DevOps & Outils Symfony ---
-        "sleistner.vscode-fp-ts-snippets",    // Utile si vous faites du JS/TS à côté (Webpack Encore / AssetMapper)
-        "mrmlnc.vscode-apache",               // Support de la config Apache
-        "tamasfe.even-better-toml",           // Pour les fichiers de config modernes
-        "redhat.vscode-yaml",                 // Indispensable pour les services.yaml et routes.yaml
+        // --- DevOps & Outils Configuration ---
+        "mrmlnc.vscode-apache",               // Config .htaccess / Apache
+        "tamasfe.even-better-toml",           // Config TOML
+        "redhat.vscode-yaml",                 // Services.yaml, routes.yaml, docker-compose
         
-        // --- Confort Visuel ---
-        "PKief.material-icon-theme",
-        "formulahendry.auto-rename-tag"
+        // --- UI ---
+        "PKief.material-icon-theme"
       ],
       "settings": {
         "php.suggest.basic": false,
         "editor.formatOnSave": true,
         
-        // Configuration spécifique Symfony / Twig
+        // Injection de la configuration Xdebug 3
+        "php.debug.executablePath": "/usr/local/bin/php",
+        "php.ini.values": {
+          "xdebug.mode": "debug",
+          "xdebug.client_host": "host.docker.internal",
+          "xdebug.client_port": "9003",
+          "xdebug.start_with_request": "yes"
+        },
+
+        // Support spécifique Twig & Emmet
         "files.associations": {
           "*.html.twig": "twig"
         },
         "emmet.includeLanguages": {
           "twig": "html"
         },
-        
-        // On force Intelephense à ignorer les dossiers de cache pour gagner en vitesse
+
+        // Optimisation de l'indexation (Intelephense)
         "intelephense.files.exclude": [
           "**/vendor/**/{Tests,tests}/**",
           "**/var/cache/**",
@@ -51,8 +60,9 @@
       }
     }
   },
-  "forwardPorts": [8000, 8025, 9003], // 9003 est le port par défaut de Xdebug 3
-  
-  // Commande pour s'assurer que Symfony CLI est à jour ou que les assets sont prêts
+
+  "forwardPorts": [8000, 8025, 9003],
+  "remoteUser": "root", 
+
   "postCreateCommand": "composer install"
 }
